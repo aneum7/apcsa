@@ -17,15 +17,14 @@ public class CustomPaintComponent extends Component {
 			for (int j = 0; j < 6; j++) {
 				
 				switch (Board.getSlot(i, j)) {
-				case 0:
-					g2d.setColor(Color.black);
-					break;
 				case 1:
 					g2d.setColor(Color.RED);
 					break;
 				case 5:
 					g2d.setColor(Color.BLUE);
 					break;
+				default:
+					g2d.setColor(Color.black);
 				}
 				g2d.fillOval(i * 100, j * 100, 100, 100);
 			}
