@@ -4,6 +4,7 @@ public class Board {
 	// represents the games board
 	// 1 for red, 5 for blue, other for nothing
 	private static int[][] slots = new int[7][6];
+	public int win = 0;
 	
 	public static int getSlot(int i, int j) {
 		return slots[i][j];
@@ -20,7 +21,7 @@ public class Board {
 	 * returns 1 if red has won
 	 * returns 5 if blue has won
 	 */
-	public int checkWin (int i, int j) {
+	public void checkWin (int i, int j) {
 		checkLeft(i,j);
 		checkRight(i,j);
 		checkUp(i,j);
@@ -31,11 +32,9 @@ public class Board {
 		checkDiagRightDown(i,j);
 		
 		for (int k : sums) {
-			if (k == 4) return 1;
-			else if (k == 20) return 5;
+			if (k == 4) win = 1;
+			else if (k == 20) win = 5;
 		}
-		
-		return 0;
 	}
 
 	// the following methods populate sums with the appropriate values
