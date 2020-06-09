@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		JFrame frame= new JFrame(gc);	
 		frame.setTitle("connect four");
-		frame.setSize(800,800);
+		frame.setSize(703,626);
 		
 		frame.add(new CustomPaintComponent());
 		frame.setVisible(true);
