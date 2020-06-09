@@ -46,6 +46,10 @@ public class Canvas extends JPanel implements MouseListener {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.setVisible(true);
+	    
+	    while (Board.win == 0) {
+	    	frame.repaint();
+	    }
 	}
 
 	@Override

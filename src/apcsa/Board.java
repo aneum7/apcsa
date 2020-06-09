@@ -4,7 +4,7 @@ public class Board {
 	// represents the games board
 	// 1 for red, 5 for blue, other for nothing
 	private static int[][] slots = new int[7][6];
-	public int win = 0;
+	public static int win = 0;
 	
 	public static int getSlot(int i, int j) {
 		return slots[i][j];
