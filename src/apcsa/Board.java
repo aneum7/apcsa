@@ -2,7 +2,7 @@ package apcsa;
 
 public class Board {
 	// slots[x coordinate starting from top left][y coordinate starting from top left]
-	private Slot[][] Slots = new Slot[7][6];
+	private int[][] Slots = new int[7][6];
 
 	Board() {
 
@@ -18,7 +18,7 @@ public class Board {
 			for (int j = 0; j < 6; j++) {
 				if (checkForLeftWin(i,j) != 0 || checkForRightWin(i,j) != 0 || checkForDiagonalLeftWin(i,j) != 0 ||
 						checkForDiagonalRightWin(i,j) != 0 || checkForDownWin(i,j) != 0) {
-					return Slots[i][j].getType();
+					return Slots[i][j];
 				}
 			}
 		}
@@ -34,7 +34,7 @@ public class Board {
 		int count = 0;
 		try {
 			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i].getType() == Slots[j - t][i].getType()) {
+				if (Slots[j][i] == Slots[j - t][i]) {
 					count++;
 				}
 			}
@@ -42,7 +42,7 @@ public class Board {
 			return 0;
 		}
 		if (count == 3) {
-			return Slots[j][i].getType();
+			return Slots[j][i];
 		} else {
 			return 0;
 		}
@@ -57,7 +57,7 @@ public class Board {
 		int count = 0;
 		try {
 			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i].getType() == Slots[j + t][i].getType()) {
+				if (Slots[j][i] == Slots[j + t][i]) {
 					count++;
 				}
 			}
@@ -65,7 +65,7 @@ public class Board {
 			return 0;
 		}
 		if (count == 3) {
-			return Slots[j][i].getType();
+			return Slots[j][i];
 		} else {
 			return 0;
 		}
@@ -80,7 +80,7 @@ public class Board {
 		int count = 0;
 		try {
 			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i].getType() == Slots[j + t][i + t].getType()) {
+				if (Slots[j][i] == Slots[j + t][i + t]) {
 					count++;
 				}
 			}
@@ -88,7 +88,7 @@ public class Board {
 			return 0;
 		}
 		if (count == 3) {
-			return Slots[j][i].getType();
+			return Slots[j][i];
 		} else {
 			return 0;
 		}
@@ -103,7 +103,7 @@ public class Board {
 		int count = 0;
 		try {
 			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i].getType() == Slots[j - t][i + t].getType()) {
+				if (Slots[j][i] == Slots[j - t][i + t]) {
 					count++;
 				}
 			}
@@ -111,7 +111,7 @@ public class Board {
 			return 0;
 		}
 		if (count == 3) {
-			return Slots[j][i].getType();
+			return Slots[j][i];
 		} else {
 			return 0;
 		}
@@ -126,7 +126,7 @@ public class Board {
 		int count = 0;
 		try {
 			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i].getType() == Slots[j][i + t].getType()) {
+				if (Slots[j][i] == Slots[j][i + t]) {
 					count++;
 				}
 			}
@@ -134,7 +134,7 @@ public class Board {
 			return 0;
 		}
 		if (count == 3) {
-			return Slots[j][i].getType();
+			return Slots[j][i];
 		} else {
 			return 0;
 		}
