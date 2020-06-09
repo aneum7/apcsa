@@ -9,6 +9,8 @@ public class Main {
 		JFrame frame= new JFrame(gc);	
 		frame.setTitle("connect four");
 		frame.setSize(800,800);
+		
+		frame.add(new CustomPaintComponent());
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
