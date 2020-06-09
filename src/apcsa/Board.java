@@ -14,85 +14,100 @@ public class Board {
 	}
 
 
+	private int[] sums = new int[8];
 	/**
-	 * the following win condition methods:
-	 * return 4 if red has won
-	 * return 20 if blue has won
-	 * return other if no player has yet won
+	 * returns 0 if nobody has yet won
+	 * returns 1 if red has won
+	 * returns 5 if blue has won
 	 */
-	public int checkForWin() {
-		return 0;	// to be implemented
+	public int checkWin (int i, int j) {
+		checkLeft(i,j);
+		checkRight(i,j);
+		checkUp(i,j);
+		checkDown(i,j);
+		checkDiagLeftUp(i,j);
+		checkDiagRightUp(i,j);
+		checkDiagLeftDown(i,j);
+		checkDiagLeftUp(i,j);
+		
+		for (int k : sums) {
+			if (k == 4) return 1;
+			else if (k == 20) return 5;
+		}
+		
+		return 0;
 	}
 
-	public int checkLeft (int i, int j) {
-		if (i < 3) return 0;
+	// the following methods populate sums with the appropriate values
+	private void checkLeft (int i, int j) {
+		if (i < 3) sums[0] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i - k, j);
-			return sum;
+			sums[0] = sum;
 		}
 	}
 
-	public int checkRight (int i, int j) {
-		if (i > 3) return 0;
+	private void checkRight (int i, int j) {
+		if (i > 3) sums[1] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i - k, j);
-			return sum;
+			sums[1] = sum;
 		}
 	}
 	
-	public int checkUp (int i, int j) {
-		if (j < 3) return 0;
+	private void checkUp (int i, int j) {
+		if (j < 3) sums[2] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i, j - k);
-			return sum;
+			sums[2] = sum;
 		}
 	}
 
-	public int checkDown (int i, int j) {
-		if (j > 2) return 0;
+	private void checkDown (int i, int j) {
+		if (j > 2) sums[3] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i, j + k);
-			return sum;
+			sums[3] = sum;
 		}
 	}
 	
-	public int checkDiagLeftUp (int i, int j) {
-		if (i < 3 || j < 3) return 0;
+	private void checkDiagLeftUp (int i, int j) {
+		if (i < 3 || j < 3) sums[4] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i - k, j - k);
-			return sum;
+			sums[4] = sum;
 		}
 	}
 
-	public int checkDiagRightUp (int i, int j) {
-		if (i > 3 || j < 3) return 0;
+	private void checkDiagRightUp (int i, int j) {
+		if (i > 3 || j < 3) sums[5] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i + k, j - k);
-			return sum;
+			sums[5] = sum;
 		}
 	}
 
-	public int checkDiagLeftDown (int i, int j) {
-		if (i < 3 || j > 2) return 0;
+	private void checkDiagLeftDown (int i, int j) {
+		if (i < 3 || j > 2) sums[6] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i - k, j + k);
-			return sum;
+			sums[6] = sum;
 		}
 	}
 
-	public int checkDiagRightDown (int i, int j) {
-		if (i > 3 || j > 2) return 0;
+	private void checkDiagRightDown (int i, int j) {
+		if (i > 3 || j > 2) sums[7] = 0;
 		else {
 			int sum = 0;
 			for (int k = 0; k < 4; k++) sum += getSlot(i + k, j + k);
-			return sum;
+			sums[7] = sum;
 		}
 	}
 }
