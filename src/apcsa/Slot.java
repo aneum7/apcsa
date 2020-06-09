@@ -22,5 +22,5 @@ public class Slot {
 	public int getType() {
 		return type;
 	}
-
+	
 }
