@@ -23,7 +23,7 @@ public class CustomPaintComponent extends Component {
 				case 1:
 					g2d.setColor(Color.RED);
 					break;
-				case 2:
+				case 5:
 					g2d.setColor(Color.BLUE);
 					break;
 				}
