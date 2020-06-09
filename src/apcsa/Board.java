@@ -23,7 +23,7 @@ public class Board {
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 6; j++) {
 				if (checkLeft(i,j) != 0 || checkRight(i,j) != 0 || checkForDiagonalLeftWin(i,j) != 0 ||
-						checkForDiagonalRightWin(i,j) != 0 || checkForDownWin(i,j) != 0) {
+						checkForDiagonalRightWin(i,j) != 0 || checkDown(i,j) != 0) {
 					return Slots[i][j];
 				}
 			}
@@ -48,7 +48,24 @@ public class Board {
 			return sum;
 		}
 	}
+	
+	public int checkUp (int i, int j) {
+		if (j < 3) return 0;
+		else {
+			int sum = 0;
+			for (int k = 0; k < 4; k++) sum += getSlot(i, j - k);
+			return sum;
+		}
+	}
 
+	public int checkDown (int i, int j) {
+		if (j > 2) return 0;
+		else {
+			int sum = 0;
+			for (int k = 0; k < 4; k++) sum += getSlot(i, j + k);
+			return sum;
+		}
+	}
 	/**
 	 * looks to the diagonal right for a win (3 additional)
 	 * returns 2 for blue win
@@ -82,29 +99,6 @@ public class Board {
 		try {
 			for (int t = 1; t < 4; t++) {
 				if (Slots[j][i] == Slots[j - t][i + t]) {
-					count++;
-				}
-			}
-		} catch (Exception e) {
-			return 0;
-		}
-		if (count == 3) {
-			return Slots[j][i];
-		} else {
-			return 0;
-		}
-	}
-	
-	/**
-	 * looks down for a win (3 additional)
-	 * returns 2 for blue win
-	 * returns 1 for red win returns 0 for no win
-	 */
-	public int checkForDownWin(int i, int j) {
-		int count = 0;
-		try {
-			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i] == Slots[j][i + t]) {
 					count++;
 				}
 			}
