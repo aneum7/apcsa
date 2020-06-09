@@ -3,14 +3,14 @@ package apcsa;
 public class Board {
 	// represents the games board
 	// 1 for red, 5 for blue, other for nothing
-	private static int[][] Slots = new int[7][6];
+	private static int[][] slots = new int[7][6];
 	
 	public static int getSlot(int i, int j) {
-		return Slots[i][j];
+		return slots[i][j];
 	}
 	
 	public static void setSlot(int i, int j, int val) {
-		Slots[i][j] = val;
+		slots[i][j] = val;
 	}
 
 
