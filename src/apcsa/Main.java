@@ -10,5 +10,7 @@ public class Main {
 		frame.setTitle("connect four");
 		frame.setSize(800,800);
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 	}
 }
