@@ -1,12 +1,18 @@
 package apcsa;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Canvas extends JPanel {
+public class Canvas extends JPanel implements MouseListener {
 	
 	private static final long serialVersionUID = 1L;
+	
+	public Canvas () {
+		addMouseListener(this);
+	}
 
 	public void paintComponent (Graphics g) {
 		super.paintComponent(g);
@@ -40,5 +46,35 @@ public class Canvas extends JPanel {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.setVisible(true);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {	// only one that matters
+		System.out.println("(" + e.getX() + ", " + e.getY() + ")");
+		Board.setSlot(1, 1, 5);
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
