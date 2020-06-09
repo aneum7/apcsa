@@ -2,11 +2,16 @@ package apcsa;
 
 public class Board {
 	// slots[x coordinate starting from top left][y coordinate starting from top left]
-	private int[][] Slots = new int[7][6];
-
-	Board() {
-
+	private static int[][] Slots = new int[7][6];
+	
+	public static int getSlot(int i, int k) {
+		return Slots[i][k];
 	}
+	
+	public static void setSlot(int i, int k, int val) {
+		Slots[i][k] = val;
+	}
+	
 
 	/**
 	 * looks throughout the board for a win (4 in a row)
