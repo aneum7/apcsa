@@ -20,15 +20,7 @@ public class Board {
 	 * return other if no player has yet won
 	 */
 	public int checkForWin() {
-		for (int i = 0; i < 7; i++) {
-			for (int j = 0; j < 6; j++) {
-				if (checkLeft(i,j) != 0 || checkRight(i,j) != 0 || checkForDiagonalLeftWin(i,j) != 0 ||
-						checkForDiagonalRightWin(i,j) != 0 || checkDown(i,j) != 0) {
-					return Slots[i][j];
-				}
-			}
-		}
-		return 0;
+		return 0;	// to be implemented
 	}
 
 	public int checkLeft (int i, int j) {
@@ -66,49 +58,40 @@ public class Board {
 			return sum;
 		}
 	}
-	/**
-	 * looks to the diagonal right for a win (3 additional)
-	 * returns 2 for blue win
-	 * returns 1 for red win returns 0 for no win
-	 */
-	public int checkForDiagonalRightWin(int i, int j) {
-		int count = 0;
-		try {
-			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i] == Slots[j + t][i + t]) {
-					count++;
-				}
-			}
-		} catch (Exception e) {
-			return 0;
-		}
-		if (count == 3) {
-			return Slots[j][i];
-		} else {
-			return 0;
+	
+	public int checkDiagLeftUp (int i, int j) {
+		if (i < 3 || j < 3) return 0;
+		else {
+			int sum = 0;
+			for (int k = 0; k < 4; k++) sum += getSlot(i - k, j - k);
+			return sum;
 		}
 	}
-	
-	/**
-	 * looks to the diagonal left for a win (3 additional)
-	 * returns 2 for blue win
-	 * returns 1 for red win returns 0 for no win
-	 */
-	public int checkForDiagonalLeftWin(int i, int j) {
-		int count = 0;
-		try {
-			for (int t = 1; t < 4; t++) {
-				if (Slots[j][i] == Slots[j - t][i + t]) {
-					count++;
-				}
-			}
-		} catch (Exception e) {
-			return 0;
+
+	public int checkDiagRightUp (int i, int j) {
+		if (i > 3 || j < 3) return 0;
+		else {
+			int sum = 0;
+			for (int k = 0; k < 4; k++) sum += getSlot(i + k, j - k);
+			return sum;
 		}
-		if (count == 3) {
-			return Slots[j][i];
-		} else {
-			return 0;
+	}
+
+	public int checkDiagLeftDown (int i, int j) {
+		if (i < 3 || j > 2) return 0;
+		else {
+			int sum = 0;
+			for (int k = 0; k < 4; k++) sum += getSlot(i - k, j + k);
+			return sum;
+		}
+	}
+
+	public int checkDiagRightDown (int i, int j) {
+		if (i > 3 || j > 2) return 0;
+		else {
+			int sum = 0;
+			for (int k = 0; k < 4; k++) sum += getSlot(i + k, j + k);
+			return sum;
 		}
 	}
 }
