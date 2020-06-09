@@ -4,12 +4,12 @@ public class Board {
 	// slots[x coordinate starting from top left][y coordinate starting from top left]
 	private static int[][] Slots = new int[7][6];
 	
-	public static int getSlot(int i, int k) {
-		return Slots[i][k];
+	public static int getSlot(int i, int j) {
+		return Slots[i][j];
 	}
 	
-	public static void setSlot(int i, int k, int val) {
-		Slots[i][k] = val;
+	public static void setSlot(int i, int j, int val) {
+		Slots[i][j] = val;
 	}
 	
 
