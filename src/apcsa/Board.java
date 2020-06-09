@@ -28,7 +28,7 @@ public class Board {
 		checkDiagLeftUp(i,j);
 		checkDiagRightUp(i,j);
 		checkDiagLeftDown(i,j);
-		checkDiagLeftUp(i,j);
+		checkDiagRightDown(i,j);
 		
 		for (int k : sums) {
 			if (k == 4) return 1;
