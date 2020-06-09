@@ -8,7 +8,8 @@ public class Main {
 	public static void main(String[] args) {
 		JFrame frame= new JFrame(gc);	
 		frame.setTitle("connect four");
-		frame.setSize(703,626);
+		frame.setSize(704,626);
+		frame.setLocationRelativeTo(null);	// center window spawn
 		
 		frame.add(new CustomPaintComponent());
 		frame.setVisible(true);
