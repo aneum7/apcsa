@@ -1,7 +1,8 @@
 package apcsa;
 
 public class Board {
-	// slots[x coordinate starting from top left][y coordinate starting from top left]
+	// represents the games board
+	// 1 for red, 5 for blue, other for nothing
 	private static int[][] Slots = new int[7][6];
 	
 	public static int getSlot(int i, int j) {
@@ -11,7 +12,7 @@ public class Board {
 	public static void setSlot(int i, int j, int val) {
 		Slots[i][j] = val;
 	}
-	
+
 
 	/**
 	 * the following win condition methods:
