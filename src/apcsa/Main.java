@@ -1,8 +1,14 @@
 package apcsa;
+import java.awt.GraphicsConfiguration;
+import javax.swing.JFrame;
 
 public class Main {
+	
+	static GraphicsConfiguration gc;
 	public static void main(String[] args) {
-		System.out.println("test");
-		
+		JFrame frame= new JFrame(gc);	
+		frame.setTitle("connect four");
+		frame.setSize(800,800);
+		frame.setVisible(true);
 	}
 }
