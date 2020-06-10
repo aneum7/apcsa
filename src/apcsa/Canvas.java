@@ -65,11 +65,19 @@ public class Canvas extends JPanel implements MouseListener {
 				if (redTurn) Board.setSlot(i, k, 1);
 				else Board.setSlot(i, k, 5);
 				redTurn = !redTurn;
+				j = k;
 				break;
 			}
 		}
 		
 		Board.checkWin(i, j);
+		if (Board.win != 0) {
+			if (Board.win == 1) {
+				System.out.println("red win");
+			} else {
+				System.out.println("blue win");
+			}
+		}
 	}
 
 	@Override
