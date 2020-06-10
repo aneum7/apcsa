@@ -24,7 +24,6 @@ public class Board {
 	public static void checkWin (int i, int j) {
 		checkLeft(i,j);
 		checkRight(i,j);
-		checkUp(i,j);
 		checkDown(i,j);
 		checkDiagLeftUp(i,j);
 		checkDiagRightUp(i,j);
@@ -57,15 +56,6 @@ public class Board {
 		}
 	}
 	
-	private static void checkUp (int i, int j) {
-		if (j < 3) sums[2] = 0;
-		else {
-			int sum = 0;
-			for (int k = 0; k < 4; k++) sum += getSlot(i, j - k);
-			sums[2] = sum;
-		}
-	}
-
 	private static void checkDown (int i, int j) {
 		if (j > 2) sums[3] = 0;
 		else {
