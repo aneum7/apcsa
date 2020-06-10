@@ -54,17 +54,12 @@ public class Canvas extends JPanel implements MouseListener {
 	    	frame.repaint();
 	    }
 	    
-	    if(Board.win == 1) {
-	    	JOptionPane.showMessageDialog(frame, "Red wins!");
-	    }
-	    else{
-	    	JOptionPane.showMessageDialog(frame, "Black wins!");
-	    }
+	    if (Board.win == 1) JOptionPane.showMessageDialog(frame, "Red wins!");
+	    else JOptionPane.showMessageDialog(frame, "Blue wins!");
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {	// only one that matters
-		System.out.println("(" + e.getX() + ", " + e.getY() + ")");
 		int i = e.getX() / 100;
 		int j = e.getY() / 100;
 		
@@ -79,13 +74,6 @@ public class Canvas extends JPanel implements MouseListener {
 		}
 		
 		Board.checkWin(i, j);
-		if (Board.win != 0) {
-			if (Board.win == 1) {
-				System.out.println("red win");
-			} else {
-				System.out.println("blue win");
-			}
-		}
 	}
 
 	@Override
