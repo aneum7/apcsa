@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 public class Canvas extends JPanel implements MouseListener {
 	
 	private static final long serialVersionUID = 1L;
+	private static Boolean redTurn = true;
 	
 	public Canvas () {
 		addMouseListener(this);
@@ -55,7 +56,17 @@ public class Canvas extends JPanel implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {	// only one that matters
 		System.out.println("(" + e.getX() + ", " + e.getY() + ")");
-		Board.setSlot(1, 1, 5);
+		int i = e.getX() / 100;
+		int j = e.getY() / 100;
+		
+		for (int k = 5; k >= 0; k--) {
+			if (Board.getSlot(i, k) == 0) {
+				if (redTurn) Board.setSlot(i, k, 1);
+				else Board.setSlot(i, k, 5);
+				redTurn = !redTurn;
+				break;
+			}
+		}
 	}
 
 	@Override
