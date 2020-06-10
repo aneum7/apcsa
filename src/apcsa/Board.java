@@ -31,9 +31,7 @@ public class Board {
 		checkDiagLeftDown(i,j);
 		checkDiagRightDown(i,j);
 		
-		System.out.println("Val = " + getSlot(i,j));
 		for (int k : sums) {
-			System.out.print(k);
 			if (k == 4) win = 1;
 			else if (k == 20) win = 5;
 		}
