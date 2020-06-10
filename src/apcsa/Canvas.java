@@ -56,6 +56,7 @@ public class Canvas extends JPanel implements MouseListener {
 	    
 	    if (Board.win == 1) JOptionPane.showMessageDialog(frame, "Red wins!");
 	    else JOptionPane.showMessageDialog(frame, "Blue wins!");
+	    System.exit(0);
 	}
 
 	@Override
