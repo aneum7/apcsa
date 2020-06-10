@@ -44,6 +44,7 @@ public class Canvas extends JPanel implements MouseListener {
 		JFrame frame = new JFrame("connect four");
 		frame.add(canvas);
 		frame.setSize(704, 626);
+		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.setVisible(true);
