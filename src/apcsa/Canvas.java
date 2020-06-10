@@ -68,6 +68,8 @@ public class Canvas extends JPanel implements MouseListener {
 				break;
 			}
 		}
+		
+		Board.checkWin(i, j);
 	}
 
 	@Override

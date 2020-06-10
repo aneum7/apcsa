@@ -51,7 +51,7 @@ public class Board {
 		if (i > 3) sums[1] = 0;
 		else {
 			int sum = 0;
-			for (int k = 0; k < 4; k++) sum += getSlot(i - k, j);
+			for (int k = 0; k < 4; k++) sum += getSlot(i + k, j);
 			sums[1] = sum;
 		}
 	}
