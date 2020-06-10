@@ -15,13 +15,13 @@ public class Board {
 	}
 
 
-	private int[] sums = new int[8];
+	private static int[] sums = new int[8];
 	/**
 	 * returns 0 if nobody has yet won
 	 * returns 1 if red has won
 	 * returns 5 if blue has won
 	 */
-	public void checkWin (int i, int j) {
+	public static void checkWin (int i, int j) {
 		checkLeft(i,j);
 		checkRight(i,j);
 		checkUp(i,j);
@@ -38,7 +38,7 @@ public class Board {
 	}
 
 	// the following methods populate sums with the appropriate values
-	private void checkLeft (int i, int j) {
+	private static void checkLeft (int i, int j) {
 		if (i < 3) sums[0] = 0;
 		else {
 			int sum = 0;
@@ -47,7 +47,7 @@ public class Board {
 		}
 	}
 
-	private void checkRight (int i, int j) {
+	private static void checkRight (int i, int j) {
 		if (i > 3) sums[1] = 0;
 		else {
 			int sum = 0;
@@ -56,7 +56,7 @@ public class Board {
 		}
 	}
 	
-	private void checkUp (int i, int j) {
+	private static void checkUp (int i, int j) {
 		if (j < 3) sums[2] = 0;
 		else {
 			int sum = 0;
@@ -65,7 +65,7 @@ public class Board {
 		}
 	}
 
-	private void checkDown (int i, int j) {
+	private static void checkDown (int i, int j) {
 		if (j > 2) sums[3] = 0;
 		else {
 			int sum = 0;
@@ -74,7 +74,7 @@ public class Board {
 		}
 	}
 	
-	private void checkDiagLeftUp (int i, int j) {
+	private static void checkDiagLeftUp (int i, int j) {
 		if (i < 3 || j < 3) sums[4] = 0;
 		else {
 			int sum = 0;
@@ -83,7 +83,7 @@ public class Board {
 		}
 	}
 
-	private void checkDiagRightUp (int i, int j) {
+	private static void checkDiagRightUp (int i, int j) {
 		if (i > 3 || j < 3) sums[5] = 0;
 		else {
 			int sum = 0;
@@ -92,7 +92,7 @@ public class Board {
 		}
 	}
 
-	private void checkDiagLeftDown (int i, int j) {
+	private static void checkDiagLeftDown (int i, int j) {
 		if (i < 3 || j > 2) sums[6] = 0;
 		else {
 			int sum = 0;
@@ -101,7 +101,7 @@ public class Board {
 		}
 	}
 
-	private void checkDiagRightDown (int i, int j) {
+	private static void checkDiagRightDown (int i, int j) {
 		if (i > 3 || j > 2) sums[7] = 0;
 		else {
 			int sum = 0;
