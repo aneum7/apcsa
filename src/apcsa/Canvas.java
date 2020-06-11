@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class Canvas extends JPanel implements MouseListener {
 	
 	private static final long serialVersionUID = 1L;
-	private static Boolean redTurn = true;
+	private static Boolean turn = true;
 	
 	public Canvas () {
 		addMouseListener(this);
@@ -50,9 +50,7 @@ public class Canvas extends JPanel implements MouseListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.setVisible(true);
 	    
-	    while (Board.win == 0) {
-	    	frame.repaint();
-	    }
+	    while (Board.win == 0) frame.repaint();
 	    
 	    if (Board.win == 1) JOptionPane.showMessageDialog(frame, "Red wins!");
 	    else JOptionPane.showMessageDialog(frame, "Blue wins!");
@@ -66,9 +64,9 @@ public class Canvas extends JPanel implements MouseListener {
 		
 		for (int k = 5; k >= 0; k--) {
 			if (Board.getSlot(i, k) == 0) {
-				if (redTurn) Board.setSlot(i, k, 1);
+				if (turn) Board.setSlot(i, k, 1);
 				else Board.setSlot(i, k, 5);
-				redTurn = !redTurn;
+				turn = !turn;
 				j = k;
 				break;
 			}
