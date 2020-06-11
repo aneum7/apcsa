@@ -60,7 +60,7 @@ public class Canvas extends JPanel implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {	// only one that matters
 		int i = e.getX() / 100;
-		int j = e.getY() / 100;
+		int j = 0;
 		
 		for (int k = 5; k >= 0; k--) {
 			if (Board.getSlot(i, k) == 0) {
