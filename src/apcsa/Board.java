@@ -1,3 +1,8 @@
+/**
+ * APCSA Final Project
+ * Connect 4
+ * Andrew Neumann, David Cruz, & Emilio Cavalli
+ */
 package apcsa;
 
 public class Board {
@@ -14,8 +19,11 @@ public class Board {
 		slots[i][j] = val;
 	}
 
-
+	// This array contains the values of slots in various directions
+	// When going through all the "check" methods
+	// left, right, IGNORE, down, DiagLeftUp, DiagRightUp, LeftDown, RightDown
 	private static int[] sums = new int[8];
+	
 	/**
 	 * returns 0 if nobody has yet won
 	 * returns 1 if red has won
@@ -37,7 +45,7 @@ public class Board {
 		System.out.println();
 	}
 
-	// the following methods populate sums with the appropriate values
+	// the following methods populate sums array with the appropriate values
 	private static void checkLeft (int i, int j) {
 		if (i < 3) sums[0] = 0;
 		else {
