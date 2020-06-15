@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class Canvas extends JPanel implements MouseListener {
 	
 	private static final long serialVersionUID = 1L;
-	private static Boolean redTurn = true;
+	private static Boolean turn = true;
 	
 	public Canvas () {
 		addMouseListener(this);
@@ -79,9 +79,9 @@ public class Canvas extends JPanel implements MouseListener {
 		// looks for the bottom most empty slot and sets it to appropriate color
 		for (int k = 5; k >= 0; k--) {
 			if (Board.getSlot(i, k) == 0) {
-				if (redTurn) Board.setSlot(i, k, 1);
+				if (turn) Board.setSlot(i, k, 1);
 				else Board.setSlot(i, k, 5);
-				redTurn = !redTurn;
+				turn = !turn;
 				j = k;
 				break;
 			}
